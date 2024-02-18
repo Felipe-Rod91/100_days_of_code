@@ -3,22 +3,36 @@
 # durante o campeonato. Aprimore o desafio para que ele funcione com vários jogadores, incluindo um sistema de visualização de detalhes do aproveitamento 
 # de cada jogador.
 
-# Criação do dicionário com nome do jogador, partidas e gols
-jogador = dict()
-jogador['nome'] = str(input('Nome do jogador(a): '))
-jogador['partidas'] = int(input('Quantas partidas jogou? '))
-jogador['gols'] = list()
+# Criação da lista com todos os jogadores e dos dicionários com nome, número de partidas e gols de cada um
+players = list()
+player = dict()
 
-# Sistema que define, pelo número de partidas, quantos gols marcou em cada e o total da temporada, colocando cada número dentro de uma lista dentro do dicionário 
-# do jogador
-for partida in range(jogador['partidas']):
-    gol = int(input(f'Quantos gols marcou na {partida+1}ª partida? '))
-    jogador['gols'].append(gol)
-    jogador['total_gols'] = sum(jogador['gols'])
+# Sistema com os dados de cada jogador
+while True:
+    player['name'] = input('Nome do jogador(a): ')
+    player['matches'] = int(input('Quantas partidas jogou? '))
+    player['goals'] = list()
+    for match in range(player['matches']):
+        goals = int(input(f'Quantos gols marcou na {match+1}ª partida? '))
+        player['goals'].append(goals)
+        player['total_goals'] = sum(player['goals'])
+    players.append(player.copy())
+    player.clear()
 
-# Resultado formatado do nome, número de partidas, quantidade de gols em cada partida e o total da temporada
-print('-=' * 20)
-print(f'O nome do jogador(a) é {jogador["nome"]} e ele(a) jogou {jogador["partidas"]} partidas:')
-for keys, values in enumerate(jogador['gols']):
-    print(f'    => Na {keys+1}ª partida fez {values} gols.')
-print(f'No total, {jogador["nome"]} fez {jogador["total_gols"]} gols.')
+# Loop perguntando ao usuário se deseja continuar com mais cadastros ou se deseja encerrar o programa e mostrar os resultados
+    while True:
+        print('-=' * 15)
+        cont = str(input('Deseja continuar?[S/N] ')).upper()
+        print('-=' * 15)
+        if cont == 'S' or cont == 'N':
+            break
+        else:
+            print('VALOR INVÁLIDO! DIGITE "S" ou "N".')
+    if cont == 'N':
+        break
+
+# Visualização de todos os jogadores e seus desempenhos na temporada
+for p in players:
+    for keys, values in p.items():
+        print(f'{keys}: {values}')
+    print()
