@@ -5,7 +5,7 @@
 
 # Criação do dicionário com nome do jogador, partidas e gols
 jogador = dict()
-jogador['nome'] = str(input('Nome do jogador: '))
+jogador['nome'] = str(input('Nome do jogador(a): '))
 jogador['partidas'] = int(input('Quantas partidas jogou? '))
 jogador['gols'] = list()
 
@@ -18,7 +18,7 @@ for partida in range(jogador['partidas']):
 
 # Resultado formatado do nome, número de partidas, quantidade de gols em cada partida e o total da temporada
 print('-=' * 20)
-print(f'O nome do jogador é {jogador["nome"]} e ele jogou {jogador["partidas"]} partidas:')
+print(f'O nome do jogador(a) é {jogador["nome"]} e ele(a) jogou {jogador["partidas"]} partidas:')
 for keys, values in enumerate(jogador['gols']):
-    print(f'    => Na partida {keys+1} ele fez {values} gols.')
+    print(f'    => Na {keys+1}ª partida fez {values} gols.')
 print(f'No total, {jogador["nome"]} fez {jogador["total_gols"]} gols.')
