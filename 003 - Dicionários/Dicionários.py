@@ -36,11 +36,11 @@ while True:
 # Visualização geral de todos os jogadores e seus totais de gols
 while True:
     while True:
-        print(f'{"Nº":<4}{"JOGADOR":<14}{"GOLS":<2}')
-        print('-' * 27)
+        print(f'{"Nº":<4} {"JOGADOR":<14} {"GOLS":<2}')
+        print('-' * 40)
         for i, p in enumerate(players):
             print(f'{i+1:<4} {p['name']:<14} {p['total_goals']:<2}')
-        print('-' * 27)
+        print('-' * 40)
 
 # Sistema de visualização detalhada de jogadores ou encerramento do programa
         option = int(input('Digite o número do jogador(a) que deseja visualizar (digite 999 para sair do programa): '))
