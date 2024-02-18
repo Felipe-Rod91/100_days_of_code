@@ -16,4 +16,9 @@ for partida in range(jogador['partidas']):
     jogador['gols'].append(gol)
     jogador['total_gols'] = sum(jogador['gols'])
 
-print(jogador)
+# Resultado formatado do nome, número de partidas, quantidade de gols em cada partida e o total da temporada
+print('-=' * 20)
+print(f'O nome do jogador é {jogador["nome"]} e ele jogou {jogador["partidas"]} partidas:')
+for keys, values in enumerate(jogador['gols']):
+    print(f'    => Na partida {keys+1} ele fez {values} gols.')
+print(f'No total, {jogador["nome"]} fez {jogador["total_gols"]} gols.')
