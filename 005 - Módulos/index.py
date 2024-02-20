@@ -17,5 +17,5 @@
 
 from Utilidades import moeda, dado
 
-price = float(input('Digite um valor: '))
+price = dado.leia_dinheiro('Digite um valor: R$')
 moeda.resumo(price, 20, 10)
