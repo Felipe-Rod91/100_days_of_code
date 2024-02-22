@@ -1,35 +1,37 @@
-# Crie uma função leia_int() que pede para digitar um número inteiro, e caso outro valor fora disso for digitado, ele insere uma
-# mensagem de erro e pergunte novamente, até o valor estar dentro do parâmetro. Faça o mesmo com uma função leia_float()
+# Vamos criar um menu em Python usando modularização.
 
-# Função que lê uma entrada e só passa se for um número inteiro. Se for valor vazio, retorna zero
-def leia_int(msg):
-    while True:
-        try:
-            valor = int(input(msg))
-        except (ValueError, TypeError):
-            print(f'VALOR INVÁLIDO! Foi encontrado um erro.')
-            continue
-        except KeyboardInterrupt:
-            print('Valor não definido. Retornando um valor 0.')
-            return 0
-        else:
-            return valor
-        
-# Função que lê uma entrada e só passa se for um número flutuante, com ponto ou vírgula. Se for valor vazio, retorna zero
-def leia_float(msg):
-    while True:
-        try:
-            valor = float(input(msg).replace(',','.'))
-        except (ValueError, TypeError):
-            print(f'VALOR INVÁLIDO! Foi encontrado um erro.')
-            continue
-        except KeyboardInterrupt:
-            print('Valor não definido. Retornando um valor 0.')
-            return 0
-        else:
-            return valor
+# Função que define a estética dos títulos de cada função
+def title(msg):
+    print('-' * 40)
+    print(f'{msg:^40}')
+    print('-' * 40)
 
-# Entrada dos dados e mensagem final
-int_number = leia_int('Digite um número inteiro: ')
-float_number = leia_float('Digite um número flutuante: ')
-print(f'O número inteiro é o {int_number} e o número flutuante é o {float_number}.')
+# Função de menu principal, com o título da função Title()
+def main_menu():
+    title('MENU PRINCIPAL')
+    print('1- Visualizar pessoas cadastradas')
+    print('2- Cadastrar nova pessoa')
+    print('3- Sair do programa')
+    print('-' * 40)
+
+
+def option_1():
+    title('OPÇÃO 1')
+
+
+def option_2():
+    title('OPÇÃO 2')
+
+# Programa principal
+while True:
+    main_menu()
+    option = int(input('Digite a opção desejada: '))
+    if option == 1:
+        option_1()
+    elif option == 2:
+        option_2()
+    elif option == 3:
+        break
+
+title('PROGRAMA ENCERRADO')
+
