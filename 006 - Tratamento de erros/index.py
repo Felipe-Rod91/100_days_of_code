@@ -1,4 +1,5 @@
-# Vamos criar um menu em Python usando modularização.
+# Vamos criar um menu em Python usando modularização, onde existem as funções de cadastrar pessoas, visualizar
+# as pessoas cadastradas e sair do programa
 
 from time import sleep
 
@@ -16,7 +17,7 @@ def main_menu():
     print('3- Sair do programa')
     print('-' * 40)
 
-
+# Função para escolher a opção certa e o tratamento de erros
 def options(msg):
     while True:
         try:
@@ -27,12 +28,12 @@ def options(msg):
         else:
             return num
 
-
+# Função da opção 1, de visualizar as pessoas cadastradas
 def option_1():
     title('OPÇÃO 1')
     sleep(3)
 
-
+# Função da opção 2, de cadastrar nova pessoa
 def option_2():
     title('OPÇÃO 2')
     sleep(3)
@@ -50,5 +51,6 @@ while True:
     else:
         print('Valor não encontrado. Digite um número válido.')
 
+# Mensagem de programa encerrado
 title('PROGRAMA ENCERRADO')
 
