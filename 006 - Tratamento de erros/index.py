@@ -1,5 +1,7 @@
 # Vamos criar um menu em Python usando modularização.
 
+from time import sleep
+
 # Função que define a estética dos títulos de cada função
 def title(msg):
     print('-' * 40)
@@ -15,23 +17,38 @@ def main_menu():
     print('-' * 40)
 
 
+def options(msg):
+    while True:
+        try:
+            num = int(input(msg))
+        except (ValueError, TypeError):
+            print('Valor inválido! Tente novamente.')
+            continue
+        else:
+            return num
+
+
 def option_1():
     title('OPÇÃO 1')
+    sleep(3)
 
 
 def option_2():
     title('OPÇÃO 2')
+    sleep(3)
 
 # Programa principal
 while True:
     main_menu()
-    option = int(input('Digite a opção desejada: '))
+    option = options('Digite um valor: ')
     if option == 1:
         option_1()
     elif option == 2:
         option_2()
     elif option == 3:
         break
+    else:
+        print('Valor não encontrado. Digite um número válido.')
 
 title('PROGRAMA ENCERRADO')
 
