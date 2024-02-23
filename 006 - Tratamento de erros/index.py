@@ -42,20 +42,35 @@ def options(msg):
 # Função da opção 1, de visualizar as pessoas cadastradas
 def option_1():
     title('OPÇÃO 1')
-    sleep(2)
+    for person in people:
+        print(f'{person['nome']}, {person['idade']}')
+    #sleep(2)
 
 # Função da opção 2, de cadastrar nova pessoa
 def option_2():
     title('OPÇÃO 2')
-    name = str(input('Nome: '))
-    age = int(input('Idade: '))
+    sign_up()
     print('Armazenando os dados...', end=' ')
-    sleep(2)
+    #sleep(2)
     print('PRONTO!')
-    sleep(2)
+    #sleep(2)
 
+
+def sign_up():
+    person['nome'] = str(input('Nome: '))
+    while True:
+        try:
+            person['idade'] = int(input('Idade: '))
+        except (ValueError, TypeError):
+            print(f'{red}Valor inválido! Digite um número inteiro.{neutral}')
+            continue
+        else:
+            break
+    people.append(person.copy())    
 
 # Programa principal
+person = dict()
+people = list()
 while True:
     main_menu()
     option = options(f'{green}Digite um valor: {neutral}')
@@ -70,4 +85,3 @@ while True:
 
 # Mensagem de programa encerrado
 title('PROGRAMA ENCERRADO')
-
