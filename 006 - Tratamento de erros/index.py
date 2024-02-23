@@ -11,7 +11,6 @@ yellow = '\033[33m'
 blue = '\033[34m'
 neutral = '\033[m'
 
-
 # Função que define a estética dos títulos de cada função
 def title(msg):
     print('-' * 40)
@@ -25,6 +24,13 @@ def main_menu():
     print(f'{yellow}2-{neutral} {blue}Cadastrar nova pessoa{neutral}')
     print(f'{yellow}3-{neutral} {blue}Sair do programa{neutral}')
     print('-' * 40)
+
+
+def people_interface():
+    print(f'{"NOME":<35}{"IDADE"}')
+    for person in people:
+        print(f'{person['nome']:<35}{person['idade']:^5}')
+
 
 # Função para escolher a opção certa e o tratamento de erros
 def options(msg):
@@ -40,23 +46,22 @@ def options(msg):
             return num
 
 # Função da opção 1, de visualizar as pessoas cadastradas
-def option_1():
-    title('OPÇÃO 1')
-    for person in people:
-        print(f'{person['nome']}, {person['idade']}')
+def registered_people():
+    title('PESSOAS CADASTRADAS')
+    people_interface()
     #sleep(2)
 
 # Função da opção 2, de cadastrar nova pessoa
-def option_2():
-    title('OPÇÃO 2')
-    sign_up()
-    print('Armazenando os dados...', end=' ')
+def register():
+    title('CADASTRO DE PESSOAS')
+    name_and_age()
+    print(f'{green}Armazenando os dados...', end=' ')
     #sleep(2)
-    print('PRONTO!')
+    print(f'PRONTO!{neutral}')
     #sleep(2)
 
 
-def sign_up():
+def name_and_age():
     person['nome'] = str(input('Nome: '))
     while True:
         try:
@@ -73,11 +78,11 @@ person = dict()
 people = list()
 while True:
     main_menu()
-    option = options(f'{green}Digite um valor: {neutral}')
+    option = options(f'Digite um valor: ')
     if option == 1:
-        option_1()
+        registered_people()
     elif option == 2:
-        option_2()
+        register()
     elif option == 3:
         break
     else:
