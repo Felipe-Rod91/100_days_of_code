@@ -23,14 +23,7 @@ def main_menu():
     print(f'{yellow}1-{neutral} {blue}Visualizar pessoas cadastradas{neutral}')
     print(f'{yellow}2-{neutral} {blue}Cadastrar nova pessoa{neutral}')
     print(f'{yellow}3-{neutral} {blue}Sair do programa{neutral}')
-    print('-' * 40)
-
-
-def people_interface():
-    print(f'{"NOME":<35}{"IDADE"}')
-    for person in people:
-        print(f'{person['nome']:<35}{person['idade']:^5}')
-
+    print('-' * 40) 
 
 # Função para escolher a opção certa e o tratamento de erros
 def options(msg):
@@ -48,21 +41,22 @@ def options(msg):
 # Função da opção 1, de visualizar as pessoas cadastradas
 def registered_people():
     title('PESSOAS CADASTRADAS')
-    people_interface()
-    #sleep(2)
+    print(f'{"NOME":<35}{"IDADE"}')
+    for person in people:
+        print(f'{person['nome']:<35}{person['idade']:^5}')
+    sleep(2)
 
 # Função da opção 2, de cadastrar nova pessoa
 def register():
     title('CADASTRO DE PESSOAS')
-    name_and_age()
-    print(f'{green}Armazenando os dados...', end=' ')
-    #sleep(2)
-    print(f'PRONTO!{neutral}')
-    #sleep(2)
-
-
-def name_and_age():
-    person['nome'] = str(input('Nome: '))
+    while True:
+        try:
+            person['nome'] = str(input('Nome: '))
+        except (ValueError, TypeError):
+            print('Nome inválido! Digite um nome.')
+            continue
+        else:
+            break
     while True:
         try:
             person['idade'] = int(input('Idade: '))
@@ -71,7 +65,11 @@ def name_and_age():
             continue
         else:
             break
-    people.append(person.copy())    
+    people.append(person.copy())  
+    print(f'{green}Armazenando os dados...', end=' ')
+    sleep(2)
+    print(f'PRONTO!{neutral}')
+    sleep(2)
 
 # Programa principal
 person = dict()
