@@ -48,3 +48,4 @@ def register(file, name, age):
             print('Houve um erro ao escrever os dados.')
         else:
             print(f'Novo cadastro de {green}{name}{neutral} realizado com sucesso.')
+
