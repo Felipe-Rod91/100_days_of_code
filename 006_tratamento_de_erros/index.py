@@ -16,10 +16,12 @@ while True:
     option = main_menu('Digite a opção desejada: ')
     if option == 1:
         read_file(file)
+        sleep(2)
     elif option == 2:
         name = str(input('Nome: '))
         age = int_number('Idade: ')
         register(file, name, age)
+        sleep(2)
     elif option == 3:
         title('PROGRAMA ENCERRADO')
         break

@@ -17,7 +17,7 @@ def create_file(name):
     except:
         print(f'Houve um erro ao criar o arquivo "{name}".')
     else:
-        print(f'Arquivo "{name}" criado com sucesso.')
+        print(f'Arquivo "{green}{name}{neutral}" criado com sucesso.')
 
 
 def read_file(name):
