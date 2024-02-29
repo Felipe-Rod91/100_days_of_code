@@ -2,16 +2,25 @@ class MinhaFamilia:
     def __init__(self, nome, idade):
         self.nome = nome
         self.idade = idade
+    
 
-pai = MinhaFamilia('Otávio', 61)
+    def educacao(self):
+        if self.idade <= 14:
+            print(f'{self.nome} tem {self.idade} anos e está no ensino fundamental.')
+        elif 14 < self.idade <= 17:
+            print(f'{self.nome} tem {self.idade} anos e está no ensino médio.')
+        else:
+            print(f'{self.nome} tem {self.idade} anos e já pode ir para a faculdade.')
 
-mae = MinhaFamilia('Bárbara', 63)
 
-irmao = MinhaFamilia('Felipe', 35)
+pai = MinhaFamilia('Adilson', 44)
+MinhaFamilia.educacao(pai)
 
-irma = MinhaFamilia('Bruna', 31)
+mae = MinhaFamilia('Sonia', 40)
+MinhaFamilia.educacao(mae)
 
-print(f'{pai.nome}, {pai.idade}')
-print(f'{mae.nome}, {mae.idade}')
-print(f'{irmao.nome}, {irmao.idade}')
-print(f'{irma.nome}, {irma.idade}')
+filho = MinhaFamilia('Rafael', 16)
+filho.educacao()
+
+filha = MinhaFamilia('Gabriela', 12)
+filha.educacao()
