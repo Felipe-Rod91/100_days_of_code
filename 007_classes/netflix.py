@@ -9,6 +9,11 @@ class Client:
         else:
             raise Exception('Plano inválido')
     
+# Método de classe para cadastrar um funcionário da Netflix, que já começa com o plano Premium.
+    @classmethod
+    def netflix_employee(cls, name, email):
+        return cls(name, email, 'Premium')
+    
 # Método para mudar o plano de assinatura.
     def change_subscription_plan(self, new_subscription_plan):
         if new_subscription_plan in self.avaliable_subscription_plans:
@@ -32,7 +37,7 @@ class Client:
         elif self.subscription == required_subscription_plan:
             print(f'Assistir filme {movie}.')
         elif self.subscription == 'Premium':
-            print(f'Assistir filme {movie}')
+            print(f'Assistir filme {movie}.')
         elif self.subscription == 'Basic' and required_subscription_plan == 'Premium':
             print(f'Faça um upgrade da sua assinatura para "Premium" para poder assistir {movie}.')
         else:
@@ -66,3 +71,13 @@ helena.watch_movie('Transformers', 'Basic')
 helena.cancel_subscription()
 helena.check_current_subscription_plan()
 helena.watch_movie('Transformers', 'Basic')
+print()
+
+# Método de classe adicionando um funcionário da Netflix, que automaticamente ganha um plano premium.
+carlos = Client.netflix_employee('Carlos', 'carlos@mail.com')
+carlos.check_current_subscription_plan()
+carlos.watch_movie('Harry Potter', 'Basic')
+carlos.watch_movie('Indiana Jones', None)
+carlos.cancel_subscription()
+carlos.check_current_subscription_plan()
+carlos.watch_movie('Harry Potter', 'Basic')
