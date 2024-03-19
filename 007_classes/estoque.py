@@ -27,8 +27,15 @@ class Product:
 
 
 iphone = Product('iPhone', 5600, 10)
+xiaomi = Product('Xiaomi', 3200, 6)
+
 iphone.show_product()
 iphone.update_price(5900)
 iphone.add_product(4)
 iphone.remove_product(9)
 iphone.show_product()
+
+xiaomi.show_product()
+xiaomi.update_price(2900)
+xiaomi.remove_product(6)
+xiaomi.show_product()
