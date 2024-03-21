@@ -13,28 +13,27 @@ class taskManager:
     def add_task(self, task):
         self.tasks.append(task)
         print(f'A tarefa "{task}" foi adicionada com sucesso.')
-        print()
 
-# Método de mostrar a lista com as tarefas pendentes
+# Método de mostrar a lista com as tarefas pendentes e concluídas
     def tasks_list(self):
-        print(f'Tarefas pendentes:')
+        print('-=' * 30)
+        print(f'Tarefas pendentes:'.upper())
         for number, item in enumerate(self.tasks):
-            print(f'{number+1}- {item}')
+            print(f'    {number+1}- {item}')
         print()
+        print('Tarefas concluídas:'.upper())
+        for item in self.concluded:
+            print(f'    - {item}')
+        print('-=' * 30)
 
 # Método para marcar uma tarefa como concluída
     def concluded_task(self, concluded):
-        print(f'A tarefa "{concluded}" foi concluída com sucesso')
-        self.tasks.remove(concluded)
-        self.concluded.append(concluded)
-        print()
-
- # Método para mostrar a lista de tarefas concluídas   
-    def concluded_tasks_list(self):
-        print('Tarefas concluídas:')
-        for item in self.concluded:
-            print(f'- {item}')
-        print()
+        try:
+            self.tasks.remove(concluded)
+            self.concluded.append(concluded)
+            print(f'A tarefa "{concluded}" foi concluída com sucesso')
+        except ValueError:
+            print(f'A tarefa "{concluded}" não está na lista de tarefas.')
         
 
 manager = taskManager()
@@ -50,4 +49,3 @@ manager.add_task('Buscar o filho na escola')
 manager.tasks_list()
 manager.concluded_task('Buscar o filho na escola')
 manager.tasks_list()
-manager.concluded_tasks_list()
