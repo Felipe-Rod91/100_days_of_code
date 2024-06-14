@@ -21,5 +21,18 @@ class character:
         print(f'Faith: {self.faith}')
 
 
-warrior = character('Krum', 'warrior', 10, 0, 10, 12, 2, 6)
+class Warrior(character):
+    def __init__(self, name, category, health, magic, stamina, strength, intelligence, faith, weapon, armor):
+        super().__init__(name, category, health, magic, stamina, strength, intelligence, faith)
+        self.weapon = weapon
+        self.armor = armor
+
+    
+    def show_status(self):
+        super().show_status()
+        print(f'Weapon: {self.weapon}')
+        print(f'Armor: {self.armor}')
+
+
+warrior = Warrior('Krum', 'warrior', 10, 0, 10, 12, 2, 6, 'Master Sword', "Radahn's Helmet")
 warrior.show_status()
